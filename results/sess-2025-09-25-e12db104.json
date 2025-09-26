@@ -1,0 +1,2070 @@
+{
+  "document_id": "sess-2025-09-25-e12db104",
+  "title": "rfp-a123-v6.txt Verification vs Sources",
+  "description": "Target: rfp-a123-v6.txt is verified against source documents",
+  "details": {
+    "sourceDocuments": [
+      {
+        "docId": "rfp-a123-v3.txt",
+        "version": 1,
+        "kind": "source_document"
+      },
+      {
+        "docId": "rfp-a123-v5.txt",
+        "version": 1,
+        "kind": "source_document"
+      },
+      {
+        "docId": "internal-spec-778-v2.txt",
+        "version": 1,
+        "kind": "source_document"
+      }
+    ]
+  },
+  "priority": "high",
+  "dependencies": [],
+  "status": "completed",
+  "blocks": [
+    {
+      "block_id": "block-01",
+      "title": "Block: General Requirements",
+      "description": "Claims related to general requirements",
+      "details": {
+        "pageRange": [
+          1,
+          50
+        ]
+      },
+      "priority": "high",
+      "status": "completed",
+      "claims": [
+        {
+          "claim_id": "GR-ENV-001",
+          "title": "Claim: The power management system shall operate reliably...",
+          "description": "The power management system shall operate reliably in harsh automotive environments with extended temperature range capability.",
+          "details": {
+            "claimText": "The power management system shall operate reliably in harsh automotive environments with extended temperature range capability.",
+            "targetLocator": {
+              "page": 1,
+              "span": "1.1 Operating Environment"
+            },
+            "verdict": "SUPPORTED",
+            "confidence": 95,
+            "rationale": "The claim states that 'The power management system shall operate reliably in harsh automotive environments with extended temperature range capability.' The evidence strongly supports this claim through multiple documents:\n\n1. From rfp-a123-v5.txt: 'The power management system shall operate reliably in harsh automotive environments including extreme temperature variations' - This directly supports the 'harsh automotive environments' part of the claim.\n\n2. From rfp-a123-v5.txt and rfp-a123-v3.txt: Both specify operating temperature ranges of -40°C to 80°C and storage temperature ranges of -55°C to 105°C, which clearly demonstrates 'extended temperature range capability' as claimed.\n\n3. The evidence also shows thermal cycling requirements (2000 cycles minimum in v5, increased from 1000 cycles in v3), further supporting the system's ability to operate reliably in harsh conditions.\n\n4. The internal-spec-778-v2.txt document even suggests a potential expansion of the operating temperature range to -40°C to 85°C (though currently under review), which further supports the extended temperature range capability.\n\nThe evidence comprehensively supports both key aspects of the claim: reliable operation in harsh automotive environments and extended temperature range capability.",
+            "citations": [
+              {
+                "docId": "rfp-a123-v5.txt",
+                "version": 5,
+                "page": 1,
+                "span": "1.1 Operating Environment",
+                "note": "Specifies that the power management system must operate reliably in harsh automotive environments with extreme temperature variations."
+              },
+              {
+                "docId": "rfp-a123-v5.txt",
+                "version": 5,
+                "page": 1,
+                "span": "1.2 Temperature Requirements",
+                "note": "Details specific temperature requirements: operating range (-40°C to 80°C), storage range (-55°C to 105°C), and thermal cycling (2000 cycles minimum). Notes this is an increase from v3."
+              },
+              {
+                "docId": "rfp-a123-v3.txt",
+                "version": 3,
+                "page": 1,
+                "span": "1.1 Operating Environment",
+                "note": "Earlier version that specified operation in 'industrial automotive environments' without mentioning extreme temperature variations specifically."
+              },
+              {
+                "docId": "rfp-a123-v3.txt",
+                "version": 3,
+                "page": 1,
+                "span": "1.2 Temperature Requirements",
+                "note": "Previous version with same temperature ranges but lower thermal cycling requirement (1000 cycles minimum vs. 2000 in v5)."
+              },
+              {
+                "docId": "internal-spec-778-v2.txt",
+                "version": 2,
+                "page": 1,
+                "span": "1.1 Temperature Management",
+                "note": "Internal specification with draft operating temperature range of -40°C to 85°C (higher than RFP), but notes current modules maintain 80°C limit pending analysis."
+              },
+              {
+                "docId": "internal-spec-778-v2.txt",
+                "version": 2,
+                "page": 1,
+                "span": "3.1 Thermal Analysis",
+                "note": "Provides additional thermal specifications including maximum junction temperature (125°C) and thermal derating requirements above 75°C ambient."
+              }
+            ]
+          },
+          "priority": "high",
+          "dependencies": [],
+          "status": "completed"
+        }
+      ]
+    },
+    {
+      "block_id": "block-02",
+      "title": "Block: Temperature Requirements",
+      "description": "Claims related to temperature requirements",
+      "details": {
+        "pageRange": [
+          1,
+          50
+        ]
+      },
+      "priority": "high",
+      "status": "completed",
+      "claims": [
+        {
+          "claim_id": "TR-OPT-001",
+          "title": "Claim: Operating temperature must be -40°C to 85°C....",
+          "description": "Operating temperature must be -40°C to 85°C.",
+          "details": {
+            "claimText": "Operating temperature must be -40°C to 85°C.",
+            "targetLocator": {
+              "page": 1,
+              "span": "1.2 Temperature Requirements"
+            },
+            "verdict": "CONTRADICTED",
+            "confidence": 95,
+            "rationale": "The claim states that the operating temperature must be -40°C to 85°C. However, multiple pieces of evidence contradict this claim:\n\n1. While the first evidence mentions \"-40°C to 85°C\" as the operating temperature, it explicitly states this is a \"draft specification\" and not finalized.\n\n2. The second evidence directly contradicts the claim by noting \"The 85°C upper operating temperature is under review\" and \"Current power module revision maintains 80°C limit pending thermal analysis completion.\"\n\n3. The fourth evidence reinforces this contradiction stating \"The 85°C operating temperature specification is currently under engineering review\" and \"Production units should maintain 80°C limit until thermal validation is complete.\"\n\n4. Both the fifth and sixth pieces of evidence (from rfp-a123-v3.txt and rfp-a123-v5.txt) explicitly state the operating temperature range as \"-40°C to 80°C\", not 85°C.\n\nThe evidence consistently shows that while 85°C may be under consideration as a future specification, the current actual operating temperature requirement is -40°C to 80°C, not 85°C as claimed. Multiple documents confirm the 80°C upper limit rather than 85°C, making this a clear contradiction.",
+            "citations": [
+              {
+                "docId": "internal-spec-778-v2.txt",
+                "version": 2,
+                "page": 1,
+                "span": "1.1 Temperature Management",
+                "note": "Supports draft specification of operating temperature range (-40°C to 85°C) and storage temperature range (-55°C to 105°C). Also specifies heat sink material requirements."
+              },
+              {
+                "docId": "internal-spec-778-v2.txt",
+                "version": 2,
+                "page": 1,
+                "span": "1.1 Temperature Management",
+                "note": "Contradicts the 85°C upper operating temperature limit, noting it's under review and current power module maintains 80°C limit pending analysis."
+              },
+              {
+                "docId": "internal-spec-778-v2.txt",
+                "version": 2,
+                "page": 3,
+                "span": "3.1 Thermal Analysis",
+                "note": "Related information indicating ambient temperature rating of 85°C is pending verification."
+              },
+              {
+                "docId": "internal-spec-778-v2.txt",
+                "version": 2,
+                "page": 5,
+                "span": "5.1 Thermal Considerations",
+                "note": "Contradicts the 85°C operating temperature specification, stating it's under engineering review and production units should maintain 80°C limit until validation is complete."
+              },
+              {
+                "docId": "rfp-a123-v3.txt",
+                "version": 3,
+                "page": 1,
+                "span": "1.2 Temperature Requirements",
+                "note": "Contradicts internal specification by requiring operating temperature range of -40°C to 80°C (not 85°C). Confirms storage temperature range of -55°C to 105°C. Specifies 1000 thermal cycles minimum."
+              },
+              {
+                "docId": "rfp-a123-v5.txt",
+                "version": 5,
+                "page": 1,
+                "span": "1.2 Temperature Requirements",
+                "note": "Contradicts internal specification by requiring operating temperature range of -40°C to 80°C (not 85°C). Confirms storage temperature range of -55°C to 105°C. Updates thermal cycling requirement to 2000 cycles minimum (increased from v3)."
+              }
+            ]
+          },
+          "priority": "high",
+          "dependencies": [],
+          "status": "completed"
+        },
+        {
+          "claim_id": "TR-STR-002",
+          "title": "Claim: Storage temperature range: -55°C to 105°C...",
+          "description": "Storage temperature range: -55°C to 105°C",
+          "details": {
+            "claimText": "Storage temperature range: -55°C to 105°C",
+            "targetLocator": {
+              "page": 1,
+              "span": "1.2 Temperature Requirements"
+            },
+            "verdict": "SUPPORTED",
+            "confidence": 100,
+            "rationale": "The claim states that the storage temperature range is -55°C to 105°C. This exact specification appears verbatim in all three pieces of evidence provided. In rfp-a123-v3.txt, section 1.2 clearly states 'Storage temperature range: -55°C to 105°C'. The same exact specification appears in rfp-a123-v5.txt, section 1.2. Additionally, internal-spec-778-v2.txt in section 1.1 also explicitly states 'Storage temperature: -55°C to 105°C'. All three sources consistently and directly support the claim with the exact same temperature range values, leaving no room for doubt about the validity of the claim.",
+            "citations": [
+              {
+                "docId": "rfp-a123-v3.txt",
+                "version": 3,
+                "page": 1,
+                "span": "1.2 Temperature Requirements",
+                "note": "Original temperature requirements specifying operating range (-40°C to 80°C), storage range (-55°C to 105°C), and thermal cycling requirement of 1000 cycles minimum."
+              },
+              {
+                "docId": "rfp-a123-v5.txt",
+                "version": 5,
+                "page": 1,
+                "span": "1.2 Temperature Requirements",
+                "note": "Updated temperature requirements with increased thermal cycling specification to 2000 cycles minimum, while maintaining the same operating and storage temperature ranges as v3."
+              },
+              {
+                "docId": "internal-spec-778-v2.txt",
+                "version": 2,
+                "page": 1,
+                "span": "1.1 Temperature Management",
+                "note": "Internal draft specification with slightly different operating temperature range (-40°C to 85°C) and additional heat sink material requirements not mentioned in the RFP documents."
+              }
+            ]
+          },
+          "priority": "high",
+          "dependencies": [],
+          "status": "completed"
+        },
+        {
+          "claim_id": "TR-CYC-003",
+          "title": "Claim: Thermal cycling: 3000 cycles minimum...",
+          "description": "Thermal cycling: 3000 cycles minimum",
+          "details": {
+            "claimText": "Thermal cycling: 3000 cycles minimum",
+            "targetLocator": {
+              "page": 1,
+              "span": "1.2 Temperature Requirements"
+            },
+            "verdict": "CONTRADICTED",
+            "confidence": 95,
+            "rationale": "The claim states 'Thermal cycling: 3000 cycles minimum', but the evidence directly contradicts this. Two relevant documents provide specific thermal cycling requirements: rfp-a123-v3.txt specifies '1000 cycles minimum' and rfp-a123-v5.txt specifies '2000 cycles minimum (increased from v3)'. Both documents clearly indicate lower minimum cycle requirements than the claimed 3000 cycles. The third piece of evidence (internal-spec-778-v2.txt) mentions temperature cycling but doesn't specify a cycle count. Since we have direct numerical contradictions from two documents, and no evidence supporting the 3000 cycles claim, the verdict is CONTRADICTED with high confidence.",
+            "citations": [
+              {
+                "docId": "rfp-a123-v3.txt",
+                "version": 3,
+                "page": 1,
+                "span": "1.2 Temperature Requirements",
+                "note": "Earlier version specifies thermal cycling requirement of 1000 cycles minimum, which contradicts the updated requirement in v5."
+              },
+              {
+                "docId": "rfp-a123-v5.txt",
+                "version": 5,
+                "page": 1,
+                "span": "1.2 Temperature Requirements",
+                "note": "Current version increases thermal cycling requirement to 2000 cycles minimum, explicitly noting the change from v3."
+              },
+              {
+                "docId": "internal-spec-778-v2.txt",
+                "version": 2,
+                "page": 1,
+                "span": "4.1 Testing Matrix",
+                "note": "Related internal specification requiring extended testing at 85°C, which relates to but differs from the temperature requirements in the RFP documents."
+              }
+            ]
+          },
+          "priority": "high",
+          "dependencies": [],
+          "status": "completed"
+        }
+      ]
+    },
+    {
+      "block_id": "block-03",
+      "title": "Block: Electrical Specifications",
+      "description": "Claims related to electrical specifications",
+      "details": {
+        "pageRange": [
+          1,
+          50
+        ]
+      },
+      "priority": "high",
+      "status": "completed",
+      "claims": [
+        {
+          "claim_id": "ES-INV-001",
+          "title": "Claim: Input voltage: 9V to 18V DC...",
+          "description": "Input voltage: 9V to 18V DC",
+          "details": {
+            "claimText": "Input voltage: 9V to 18V DC",
+            "targetLocator": {
+              "page": 1,
+              "span": "1.3 Electrical Specifications"
+            },
+            "verdict": "SUPPORTED",
+            "confidence": 95,
+            "rationale": "The claim states that the input voltage is \"9V to 18V DC\". The evidence from document \"rfp-a123-v5.txt\" explicitly states \"Input voltage: 9V to 18V DC (extended range)\" in two separate instances. This is an exact match to the claim, with the only difference being the additional parenthetical note \"(extended range)\" which doesn't contradict or change the voltage range specified. The evidence from \"rfp-a123-v3.txt\" shows a different range of \"9V to 16V DC\", but this appears to be from an older version (v3) of the document, while the more recent version (v5) matches the claim exactly. Since we have direct, explicit evidence supporting the exact voltage range claimed, this is a clear SUPPORTED verdict with high confidence.",
+            "citations": [
+              {
+                "docId": "rfp-a123-v5.txt",
+                "version": 5,
+                "page": 1,
+                "span": "1.3 Electrical Specifications",
+                "note": "Current specification showing extended input voltage range (9V to 18V DC)"
+              },
+              {
+                "docId": "rfp-a123-v3.txt",
+                "version": 3,
+                "page": 1,
+                "span": "1.3 Electrical Specifications",
+                "note": "Previous specification with narrower input voltage range (9V to 16V DC)"
+              },
+              {
+                "docId": "rfp-a123-v5.txt",
+                "version": 5,
+                "page": 1,
+                "span": "1.3 Electrical Specifications",
+                "note": "Duplicate citation confirming extended voltage range specification"
+              }
+            ]
+          },
+          "priority": "high",
+          "dependencies": [],
+          "status": "completed"
+        },
+        {
+          "claim_id": "ES-OUTV-002",
+          "title": "Claim: Output voltage: 5V ±4% and 3.3V ±3%...",
+          "description": "Output voltage: 5V ±4% and 3.3V ±3%",
+          "details": {
+            "claimText": "Output voltage: 5V ±4% and 3.3V ±3%",
+            "targetLocator": {
+              "page": 1,
+              "span": "1.3 Electrical Specifications"
+            },
+            "verdict": "PARTIAL",
+            "confidence": 85,
+            "rationale": "The claim states 'Output voltage: 5V ±4% and 3.3V ±3%', but the evidence consistently shows different specifications. Multiple evidence sources (rfp-a123-v3.txt, rfp-a123-v5.txt) explicitly state 'Output voltage: 5V ±5% and 3.3V ±3%'. The internal-spec-778-v2.txt also confirms 'Primary rail: 5V with ±5% tolerance' and 'Secondary rail: 3.3V with ±3% tolerance'. The evidence consistently shows that the 5V output has a ±5% tolerance (not ±4% as claimed), while the 3.3V output does match the claimed ±3% tolerance. Since one part of the claim is supported (3.3V ±3%) but another part is contradicted (5V ±4% vs actual ±5%), this is a clear PARTIAL verdict.",
+            "citations": [
+              {
+                "docId": "rfp-a123-v3.txt",
+                "version": 3,
+                "page": 1,
+                "span": "1.3 Electrical Specifications",
+                "note": "Original electrical specifications showing input voltage 9V-16V DC, output voltages of 5V ±5% and 3.3V ±3%, maximum power consumption of 150W, and minimum efficiency of 85%."
+              },
+              {
+                "docId": "rfp-a123-v5.txt",
+                "version": 5,
+                "page": 1,
+                "span": "1.3 Electrical Specifications",
+                "note": "Updated electrical specifications with extended input voltage range (9V-18V DC), same output voltages, increased maximum power consumption (180W), and improved efficiency (87%)."
+              },
+              {
+                "docId": "internal-spec-778-v2.txt",
+                "version": 2,
+                "page": 1,
+                "span": "1.2 Power Distribution",
+                "note": "Internal specifications confirming the output voltage tolerances and the updated 180W maximum power budget."
+              }
+            ]
+          },
+          "priority": "high",
+          "dependencies": [],
+          "status": "completed"
+        },
+        {
+          "claim_id": "ES-PWR-003",
+          "title": "Claim: Maximum power consumption: 200W...",
+          "description": "Maximum power consumption: 200W",
+          "details": {
+            "claimText": "Maximum power consumption: 200W",
+            "targetLocator": {
+              "page": 1,
+              "span": "1.3 Electrical Specifications"
+            },
+            "verdict": "CONTRADICTED",
+            "confidence": 95,
+            "rationale": "The claim states that the maximum power consumption is 200W, but all three pieces of evidence directly contradict this claim with specific values. The first evidence states 'Maximum power consumption: 150W'. The second evidence states 'Maximum power consumption: 180W (increased from 150W)'. The third evidence states 'Power budget allocation: 180W maximum system power'. None of these values match the claimed 200W. All three pieces of evidence are highly relevant (with relevance scores of 0.9-0.95) and consistently show lower maximum power consumption values (150W or 180W) than the claimed 200W. This is a clear contradiction with multiple consistent sources providing specific numerical values.",
+            "citations": [
+              {
+                "docId": "rfp-a123-v3.txt",
+                "version": 3,
+                "page": 1,
+                "span": "1.3 Electrical Specifications",
+                "note": "Original electrical specifications showing input voltage 9V-16V DC, output voltages of 5V ±5% and 3.3V ±3%, maximum power consumption of 150W, and minimum efficiency of 85%. This version has been superseded."
+              },
+              {
+                "docId": "rfp-a123-v5.txt",
+                "version": 5,
+                "page": 1,
+                "span": "1.3 Electrical Specifications",
+                "note": "Updated electrical specifications with extended input voltage range (9V-18V DC), same output voltages, increased maximum power consumption (180W), and improved efficiency (87%). This contradicts the earlier version and represents current requirements."
+              },
+              {
+                "docId": "internal-spec-778-v2.txt",
+                "version": 2,
+                "page": 1,
+                "span": "1.2 Power Distribution",
+                "note": "Internal specification confirming the 5V and 3.3V rails with their respective tolerances and the 180W maximum power budget, consistent with the updated RFP v5 specifications."
+              }
+            ]
+          },
+          "priority": "high",
+          "dependencies": [],
+          "status": "completed"
+        },
+        {
+          "claim_id": "ES-EFF-004",
+          "title": "Claim: Efficiency: minimum 88%...",
+          "description": "Efficiency: minimum 88%",
+          "details": {
+            "claimText": "Efficiency: minimum 88%",
+            "targetLocator": {
+              "page": 1,
+              "span": "1.3 Electrical Specifications"
+            },
+            "verdict": "CONTRADICTED",
+            "confidence": 95,
+            "rationale": "The claim states that the efficiency is 'minimum 88%', but the evidence directly contradicts this. The most recent document (rfp-a123-v5.txt) specifies 'Efficiency: minimum 87% (improved from 85%)' and the older document (rfp-a123-v3.txt) states 'Efficiency: minimum 85%'. Both pieces of evidence clearly indicate efficiency requirements that are lower than the claimed 88%. The third piece of evidence (internal-spec-778-v2.txt) doesn't mention efficiency at all. Since we have direct, specific evidence contradicting the claimed efficiency value, the verdict is CONTRADICTED with high confidence.",
+            "citations": [
+              {
+                "docId": "rfp-a123-v3.txt",
+                "version": 3,
+                "page": 1,
+                "span": "1.3 Electrical Specifications",
+                "note": "Contains original electrical specifications with 9V-16V DC input range, 5V/3.3V outputs, 150W maximum power consumption, and 85% minimum efficiency. This version has been superseded."
+              },
+              {
+                "docId": "rfp-a123-v5.txt",
+                "version": 5,
+                "page": 1,
+                "span": "1.3 Electrical Specifications",
+                "note": "Contains updated electrical specifications with extended input range (9V-18V DC), same output voltages, increased power consumption (180W), and improved efficiency (87%). This contradicts and supersedes version 3."
+              },
+              {
+                "docId": "internal-spec-778-v2.txt",
+                "version": 2,
+                "page": 1,
+                "span": "1.2 Power Distribution",
+                "note": "Internal specification confirming the 5V/3.3V rail tolerances and 180W maximum power budget, aligning with the updated RFP v5 specifications."
+              }
+            ]
+          },
+          "priority": "high",
+          "dependencies": [],
+          "status": "completed"
+        }
+      ]
+    },
+    {
+      "block_id": "block-04",
+      "title": "Block: Physical Requirements",
+      "description": "Claims related to physical requirements",
+      "details": {
+        "pageRange": [
+          1,
+          50
+        ]
+      },
+      "priority": "high",
+      "status": "completed",
+      "claims": [
+        {
+          "claim_id": "PR-DIM-001",
+          "title": "Claim: Maximum dimensions: 105mm x 70mm x 20mm...",
+          "description": "Maximum dimensions: 105mm x 70mm x 20mm",
+          "details": {
+            "claimText": "Maximum dimensions: 105mm x 70mm x 20mm",
+            "targetLocator": {
+              "page": 1,
+              "span": "2.1 Dimensions"
+            },
+            "verdict": "CONTRADICTED",
+            "confidence": 95,
+            "rationale": "The claim states the maximum dimensions are 105mm x 70mm x 20mm. However, the evidence directly contradicts this claim by providing different maximum dimensions in two separate documents. The first piece of evidence from rfp-a123-v5.txt specifies 'Maximum dimensions: 110mm x 75mm x 22mm (reduced size)' which is larger in all three dimensions than the claimed values. The second piece of evidence from rfp-a123-v3.txt states 'Maximum dimensions: 120mm x 80mm x 25mm' which is even larger. Both evidence pieces are highly relevant (with scores of 0.9 and 0.8) and directly address the maximum dimensions specification. The third piece of evidence is not relevant to this evaluation. Since the evidence clearly shows different dimension specifications than what is claimed, the claim is contradicted.",
+            "citations": [
+              {
+                "docId": "rfp-a123-v5.txt",
+                "version": 5,
+                "page": 2,
+                "span": "2.1 Dimensions",
+                "note": "Contradicts with updated specifications showing reduced dimensions (110mm x 75mm x 22mm) and weight (180g)"
+              },
+              {
+                "docId": "rfp-a123-v3.txt",
+                "version": 3,
+                "page": 2,
+                "span": "2.1 Dimensions",
+                "note": "Contradicts with original specifications showing larger dimensions (120mm x 80mm x 25mm) and weight (200g)"
+              },
+              {
+                "docId": "internal-spec-778-v2.txt",
+                "version": 2,
+                "page": 1,
+                "span": "entire document",
+                "note": "Related document that does not contain information about the specific dimensions of 105mm x 70mm x 20mm"
+              }
+            ]
+          },
+          "priority": "high",
+          "dependencies": [],
+          "status": "completed"
+        },
+        {
+          "claim_id": "PR-WGT-002",
+          "title": "Claim: Weight: maximum 160g...",
+          "description": "Weight: maximum 160g",
+          "details": {
+            "claimText": "Weight: maximum 160g",
+            "targetLocator": {
+              "page": 1,
+              "span": "2.1 Dimensions"
+            },
+            "verdict": "CONTRADICTED",
+            "confidence": 95,
+            "rationale": "The claim states the maximum weight is 160g, but the evidence directly contradicts this. The first piece of evidence from rfp-a123-v5.txt clearly states 'Weight: maximum 180g (reduced weight)' which is 20g heavier than the claimed maximum. The second piece of evidence from rfp-a123-v3.txt indicates 'Weight: maximum 200g' which is 40g heavier than the claimed maximum. Both pieces of evidence are highly relevant (0.9 and 0.8 relevance scores) and directly address the weight specification. The third piece of evidence about heat sink materials is not relevant to the weight claim. Since we have clear, direct contradictory evidence from two different document versions, the verdict is CONTRADICTED with high confidence.",
+            "citations": [
+              {
+                "docId": "rfp-a123-v5.txt",
+                "version": 5,
+                "page": 2,
+                "span": "Physical Requirements section",
+                "note": "Contains updated dimensions (110mm x 75mm x 22mm) and weight (180g) requirements, which contradict earlier specifications."
+              },
+              {
+                "docId": "rfp-a123-v3.txt",
+                "version": 3,
+                "page": 2,
+                "span": "Physical Requirements section",
+                "note": "Contains original dimensions (120mm x 80mm x 25mm) and weight (200g) requirements, which are contradicted by newer version."
+              },
+              {
+                "docId": "internal-spec-778-v2.txt",
+                "version": 2,
+                "page": 5,
+                "span": "Design Notes section",
+                "note": "Provides related information about material requirements and ongoing cost optimization studies for aluminum alloys."
+              }
+            ]
+          },
+          "priority": "high",
+          "dependencies": [],
+          "status": "completed"
+        },
+        {
+          "claim_id": "PR-CON-003",
+          "title": "Claim: Connector must meet at least IP67 rating....",
+          "description": "Connector must meet at least IP67 rating.",
+          "details": {
+            "claimText": "Connector must meet at least IP67 rating.",
+            "targetLocator": {
+              "page": 1,
+              "span": "2.2 Connectors"
+            },
+            "verdict": "SUPPORTED",
+            "confidence": 95,
+            "rationale": "The claim states that \"Connector must meet at least IP67 rating.\" The evidence strongly supports this claim:\n\n1. Document \"rfp-a123-v5.txt\" explicitly states \"IP67 rating minimum for all external connections (upgraded from IP65)\" in section 2.2 Connectors.\n\n2. Document \"internal-spec-778-v2.txt\" also confirms \"Minimum IP rating: IP67 for exposed connectors\" in section 2.2 Connector Specifications.\n\n3. There is one contradicting piece of evidence from an older document \"rfp-a123-v3.txt\" which mentions \"IP65 rating minimum for all external connections.\" However, this appears to be from an earlier version (v3) of the requirements, while the supporting evidence comes from a newer version (v5) that explicitly mentions the rating was \"upgraded from IP65.\" This indicates there was a deliberate change in requirements from IP65 to IP67.\n\nThe most current documentation clearly supports the IP67 rating requirement, and the contradiction is explained by version history. Therefore, the claim is SUPPORTED with high confidence.",
+            "citations": [
+              {
+                "docId": "rfp-a123-v5.txt",
+                "version": 5,
+                "page": 2,
+                "span": "2.2 Connectors",
+                "note": "Current RFP version specifying IP67 rating requirement and Amphenol automotive series connectors"
+              },
+              {
+                "docId": "internal-spec-778-v2.txt",
+                "version": 2,
+                "page": 2,
+                "span": "2.2 Connector Specifications",
+                "note": "Internal specification supporting IP67 rating requirement and detailing specific connector types"
+              },
+              {
+                "docId": "rfp-a123-v3.txt",
+                "version": 3,
+                "page": 2,
+                "span": "2.2 Connectors",
+                "note": "Previous RFP version contradicting current requirements - specified lower IP65 rating instead of IP67"
+              }
+            ]
+          },
+          "priority": "high",
+          "dependencies": [],
+          "status": "completed"
+        },
+        {
+          "claim_id": "PR-CON-004",
+          "title": "Claim: Automotive grade connectors required...",
+          "description": "Automotive grade connectors required",
+          "details": {
+            "claimText": "Automotive grade connectors required",
+            "targetLocator": {
+              "page": 1,
+              "span": "2.2 Connectors"
+            },
+            "verdict": "SUPPORTED",
+            "confidence": 95,
+            "rationale": "The claim 'Automotive grade connectors required' is directly and explicitly supported by multiple pieces of evidence. Both rfp-a123-v3.txt and rfp-a123-v5.txt contain the exact phrase 'Automotive grade connectors required' in their connector specifications section. Additionally, internal-spec-778-v2.txt specifies 'TE Connectivity automotive grade' for signal connectors, further supporting the requirement for automotive grade connectors. The evidence is consistent across multiple documents and directly matches the claim verbatim in two instances, providing very strong support.",
+            "citations": [
+              {
+                "docId": "rfp-a123-v3.txt",
+                "version": 3,
+                "page": 1,
+                "span": "2.2 Connectors",
+                "note": "Original RFP specifying IP65 rating minimum for external connections"
+              },
+              {
+                "docId": "rfp-a123-v5.txt",
+                "version": 5,
+                "page": 1,
+                "span": "2.2 Connectors",
+                "note": "Updated RFP with increased IP67 rating requirement and specific Amphenol automotive series connector type"
+              },
+              {
+                "docId": "internal-spec-778-v2.txt",
+                "version": 2,
+                "page": 1,
+                "span": "2.2 Connector Specifications",
+                "note": "Internal specification detailing specific connector types (Amphenol Econoseal and TE Connectivity) with IP67 rating requirement"
+              }
+            ]
+          },
+          "priority": "high",
+          "dependencies": [],
+          "status": "completed"
+        },
+        {
+          "claim_id": "PR-CON-005",
+          "title": "Claim: Connector type: Amphenol automotive series preferr...",
+          "description": "Connector type: Amphenol automotive series preferred",
+          "details": {
+            "claimText": "Connector type: Amphenol automotive series preferred",
+            "targetLocator": {
+              "page": 1,
+              "span": "2.2 Connectors"
+            },
+            "verdict": "PARTIAL",
+            "confidence": 75,
+            "rationale": "The claim states 'Connector type: Amphenol automotive series preferred', suggesting a preference for Amphenol automotive series connectors. The first evidence from rfp-a123-v5.txt states 'Connector type: Amphenol automotive series' without the word 'preferred', indicating it's a requirement rather than a preference. The second evidence from internal-spec-778-v2.txt specifies 'Primary power connector: Amphenol Econoseal series', which is a specific Amphenol automotive series, and mentions 'TE Connectivity automotive grade' for signal connectors. This shows Amphenol is indeed used but with specific series designations and not exclusively for all connector types. The evidence supports that Amphenol automotive series connectors are specified, but doesn't indicate they are merely 'preferred' - they appear to be required for at least some connections. This subtle difference between a preference and a requirement leads to a PARTIAL verdict.",
+            "citations": [
+              {
+                "docId": "rfp-a123-v5.txt",
+                "version": 5,
+                "page": 2,
+                "span": "2.2 Connectors",
+                "note": "Current RFP version specifying IP67 rating requirement (upgraded from IP65) and Amphenol automotive series connectors"
+              },
+              {
+                "docId": "internal-spec-778-v2.txt",
+                "version": 2,
+                "page": 2,
+                "span": "2.2 Connector Specifications",
+                "note": "Internal specification detailing specific connector types (Amphenol Econoseal for power, TE Connectivity for signals) with IP67 rating requirement"
+              },
+              {
+                "docId": "rfp-a123-v3.txt",
+                "version": 3,
+                "page": 2,
+                "span": "2.2 Connectors",
+                "note": "Previous RFP version showing original IP65 rating requirement before upgrade to IP67 in v5"
+              }
+            ]
+          },
+          "priority": "high",
+          "dependencies": [],
+          "status": "completed"
+        },
+        {
+          "claim_id": "PR-MAT-006",
+          "title": "Claim: Heat sink material may be Aluminum or Copper....",
+          "description": "Heat sink material may be Aluminum or Copper.",
+          "details": {
+            "claimText": "Heat sink material may be Aluminum or Copper.",
+            "targetLocator": {
+              "page": 1,
+              "span": "2.3 Materials"
+            },
+            "verdict": "SUPPORTED",
+            "confidence": 95,
+            "rationale": "The claim states that heat sink material may be Aluminum or Copper, and the evidence strongly supports this. Multiple documents confirm that both materials are acceptable options, though with different levels of preference. The evidence shows that Aluminum 6061-T6 is the preferred/standard material (mentioned in all documents), but Copper is explicitly listed as an option in multiple places: 'Copper (requires thermal analysis justification)' and 'Copper only with engineering approval'. The evidence clearly establishes that both Aluminum and Copper can be used as heat sink materials, though Copper requires additional approval. This directly supports the claim that the heat sink material may be either Aluminum or Copper, even though Aluminum is preferred.",
+            "citations": [
+              {
+                "docId": "rfp-a123-v3.txt",
+                "version": 3,
+                "page": 1,
+                "span": "2.3 Materials",
+                "note": "Specifies Aluminum 6061-T6 as the preferred heat sink material in an earlier version of the RFP."
+              },
+              {
+                "docId": "rfp-a123-v5.txt",
+                "version": 5,
+                "page": 1,
+                "span": "2.3 Materials",
+                "note": "Updated RFP version that allows for 'Aluminum 6061-T6 or equivalent' heat sink material, showing flexibility in material selection."
+              },
+              {
+                "docId": "internal-spec-778-v2.txt",
+                "version": 2,
+                "page": 1,
+                "span": "2.1 Heat Sink Requirements",
+                "note": "Provides a prioritized list of acceptable heat sink materials, with Aluminum 6061-T6 as the standard, followed by acceptable alternatives."
+              },
+              {
+                "docId": "internal-spec-778-v2.txt",
+                "version": 2,
+                "page": 1,
+                "span": "1.1 Temperature Management",
+                "note": "Confirms Aluminum 6061-T6 preference and indicates that Copper requires specific engineering approval."
+              },
+              {
+                "docId": "internal-spec-778-v2.txt",
+                "version": 2,
+                "page": 1,
+                "span": "5.2 Material Alternatives",
+                "note": "States that any heat sink material other than Aluminum 6061-T6 requires engineering approval, and mentions ongoing cost optimization studies for alternative aluminum alloys."
+              }
+            ]
+          },
+          "priority": "high",
+          "dependencies": [],
+          "status": "completed"
+        },
+        {
+          "claim_id": "PR-MAT-007",
+          "title": "Claim: PCB material: FR4 with minimum thickness 1.6mm...",
+          "description": "PCB material: FR4 with minimum thickness 1.6mm",
+          "details": {
+            "claimText": "PCB material: FR4 with minimum thickness 1.6mm",
+            "targetLocator": {
+              "page": 1,
+              "span": "2.3 Materials"
+            },
+            "verdict": "SUPPORTED",
+            "confidence": 95,
+            "rationale": "The claim states 'PCB material: FR4 with minimum thickness 1.6mm'. This is directly supported by multiple pieces of evidence. Two documents (rfp-a123-v3.txt and rfp-a123-v5.txt) contain the exact same wording as the claim: 'PCB material: FR4 with minimum thickness 1.6mm'. Additionally, a third document (internal-spec-778-v2.txt) contains semantically identical information with slightly different wording: 'Base material: FR4, minimum 1.6mm thickness'. All three pieces of evidence confirm both the material type (FR4) and the minimum thickness requirement (1.6mm). The evidence is consistent across multiple documents and directly supports the claim with no contradictions.",
+            "citations": [
+              {
+                "docId": "rfp-a123-v3.txt",
+                "version": 3,
+                "page": 1,
+                "span": "2.3 Materials",
+                "note": "Specifies FR4 PCB material with minimum thickness requirement of 1.6mm (supporting evidence)"
+              },
+              {
+                "docId": "rfp-a123-v5.txt",
+                "version": 5,
+                "page": 1,
+                "span": "2.3 Materials",
+                "note": "Confirms FR4 PCB material with minimum thickness requirement of 1.6mm (supporting evidence)"
+              },
+              {
+                "docId": "internal-spec-778-v2.txt",
+                "version": 2,
+                "page": 1,
+                "span": "2.3 PCB Requirements",
+                "note": "Internal specification confirming FR4 base material with minimum 1.6mm thickness (supporting evidence)"
+              }
+            ]
+          },
+          "priority": "high",
+          "dependencies": [],
+          "status": "completed"
+        },
+        {
+          "claim_id": "PR-MAT-008",
+          "title": "Claim: Conformal coating required for all PCB assemblies...",
+          "description": "Conformal coating required for all PCB assemblies",
+          "details": {
+            "claimText": "Conformal coating required for all PCB assemblies",
+            "targetLocator": {
+              "page": 1,
+              "span": "2.3 Materials"
+            },
+            "verdict": "PARTIAL",
+            "confidence": 75,
+            "rationale": "The claim states that conformal coating is required for 'all PCB assemblies', but the evidence only partially supports this claim. In the first evidence from rfp-a123-v5.txt, it states 'Conformal coating required for PCB protection', which confirms that conformal coating is required, but doesn't explicitly state it's for 'all' PCB assemblies. It simply mentions it's required for 'PCB protection' without specifying the scope. The other evidence documents (rfp-a123-v3.txt and internal-spec-778-v2.txt) mention PCB requirements but don't mention conformal coating at all, which suggests it might not be a universal requirement across all documentation. Since the evidence confirms conformal coating is required but doesn't explicitly support the 'all PCB assemblies' scope of the claim, a PARTIAL verdict is most appropriate.",
+            "citations": [
+              {
+                "docId": "rfp-a123-v5.txt",
+                "version": 5,
+                "page": 2,
+                "span": "2.3 Materials",
+                "note": "Current RFP version specifying aluminum heat sink material (6061-T6 or equivalent), FR4 PCB with 1.6mm minimum thickness, and requirement for conformal coating."
+              },
+              {
+                "docId": "rfp-a123-v3.txt",
+                "version": 3,
+                "page": 2,
+                "span": "2.3 Materials",
+                "note": "Previous RFP version that specified aluminum 6061-T6 as 'preferred' rather than 'or equivalent' and did not include conformal coating requirement."
+              },
+              {
+                "docId": "internal-spec-778-v2.txt",
+                "version": 2,
+                "page": 2,
+                "span": "2.3 PCB Requirements",
+                "note": "Internal specification with additional PCB details including copper weight requirements (2oz minimum) and allowance for via-in-pad technology."
+              }
+            ]
+          },
+          "priority": "high",
+          "dependencies": [],
+          "status": "completed"
+        }
+      ]
+    },
+    {
+      "block_id": "block-05",
+      "title": "Block: Safety Requirements",
+      "description": "Claims related to safety requirements",
+      "details": {
+        "pageRange": [
+          1,
+          50
+        ]
+      },
+      "priority": "high",
+      "status": "completed",
+      "claims": [
+        {
+          "claim_id": "SR-ISO-001",
+          "title": "Claim: Galvanic isolation between input and output...",
+          "description": "Galvanic isolation between input and output",
+          "details": {
+            "claimText": "Galvanic isolation between input and output",
+            "targetLocator": {
+              "page": 1,
+              "span": "3.1 Isolation"
+            },
+            "verdict": "SUPPORTED",
+            "confidence": 100,
+            "rationale": "The claim states 'Galvanic isolation between input and output' which is directly and explicitly supported by both pieces of evidence. Both documents (rfp-a123-v3.txt and rfp-a123-v5.txt) contain the exact phrase 'Galvanic isolation between input and output' in Section 3.1. The evidence provides additional details about isolation voltage requirements (1500V AC in v3 and 2000V AC in v5), but these details don't affect the validity of the core claim about galvanic isolation being present between input and output. The claim is perfectly supported with the highest confidence level as it appears verbatim in multiple source documents.",
+            "citations": [
+              {
+                "docId": "rfp-a123-v3.txt",
+                "version": 3,
+                "page": 1,
+                "span": "Section 3.1",
+                "note": "Specifies galvanic isolation requirement between input and output with minimum isolation voltage of 1500V AC"
+              },
+              {
+                "docId": "rfp-a123-v5.txt",
+                "version": 5,
+                "page": 1,
+                "span": "Section 3.1",
+                "note": "Updated isolation voltage requirement to minimum 2000V AC (increased from previous 1500V requirement)"
+              }
+            ]
+          },
+          "priority": "high",
+          "dependencies": [],
+          "status": "completed"
+        },
+        {
+          "claim_id": "SR-ISO-002",
+          "title": "Claim: Isolation voltage: minimum 2500V AC...",
+          "description": "Isolation voltage: minimum 2500V AC",
+          "details": {
+            "claimText": "Isolation voltage: minimum 2500V AC",
+            "targetLocator": {
+              "page": 1,
+              "span": "3.1 Isolation"
+            },
+            "verdict": "CONTRADICTED",
+            "confidence": 95,
+            "rationale": "The claim states that the isolation voltage requirement is 'minimum 2500V AC'. However, the evidence directly contradicts this claim. The most recent document (rfp-a123-v5.txt) clearly states that the isolation voltage requirement is 'minimum 2000V AC (increased from 1500V)'. The previous version (rfp-a123-v3.txt) shows an even lower requirement of 'minimum 1500V AC'. Both pieces of evidence are highly relevant (0.9 and 0.8 relevance scores) and directly address the isolation voltage specification. The claim of 2500V AC is not supported by any of the provided evidence and is explicitly contradicted by the actual requirements of 2000V AC in the most current document.",
+            "citations": [
+              {
+                "docId": "rfp-a123-v5.txt",
+                "version": 5,
+                "page": 3,
+                "span": "Safety Requirements - Isolation",
+                "note": "Latest version of RFP specifies increased isolation voltage requirement of minimum 2000V AC, contradicting earlier version."
+              },
+              {
+                "docId": "rfp-a123-v3.txt",
+                "version": 3,
+                "page": 3,
+                "span": "Safety Requirements - Isolation",
+                "note": "Earlier version of RFP specified isolation voltage requirement of minimum 1500V AC, contradicted by newer version."
+              },
+              {
+                "docId": "internal-spec-778-v2.txt",
+                "version": 2,
+                "page": 1,
+                "span": "entire document",
+                "note": "Internal specification document does not mention isolation voltage requirements, but may be related to the topic."
+              }
+            ]
+          },
+          "priority": "high",
+          "dependencies": [],
+          "status": "completed"
+        },
+        {
+          "claim_id": "SR-PROT-003",
+          "title": "Claim: Overcurrent protection: implemented with programma...",
+          "description": "Overcurrent protection: implemented with programmable threshold",
+          "details": {
+            "claimText": "Overcurrent protection: implemented with programmable threshold",
+            "targetLocator": {
+              "page": 1,
+              "span": "3.2 Protection"
+            },
+            "verdict": "PARTIAL",
+            "confidence": 85,
+            "rationale": "The claim states that overcurrent protection is implemented with 'programmable threshold', while the strongest evidence from rfp-a123-v5.txt states that overcurrent protection is implemented with 'adjustable threshold'. These terms are semantically similar but not identical - both indicate a threshold that can be changed, but 'programmable' specifically suggests digital configuration while 'adjustable' could mean manual or digital adjustment. The second piece of evidence only confirms that overcurrent protection is implemented but doesn't mention threshold characteristics. The third evidence explicitly states no information about programmable/adjustable thresholds is found in that document. Since the evidence shows a similar but not identical requirement (adjustable vs. programmable), the PARTIAL verdict is most appropriate.",
+            "citations": [
+              {
+                "docId": "rfp-a123-v5.txt",
+                "version": 5,
+                "page": 3,
+                "span": "Section 3.2 Protection",
+                "note": "Strongly supports (0.95 relevance) - Contains specific information about overcurrent protection with adjustable threshold"
+              },
+              {
+                "docId": "rfp-a123-v3.txt",
+                "version": 3,
+                "page": 3,
+                "span": "Section 3.2 Protection",
+                "note": "Moderately relates (0.7 relevance) - Mentions overcurrent protection but lacks details about adjustable threshold"
+              },
+              {
+                "docId": "internal-spec-778-v2.txt",
+                "version": 2,
+                "page": 1,
+                "span": "entire document",
+                "note": "Low relevance (0.1) - Explicitly states no information about overcurrent protection with adjustable threshold"
+              }
+            ]
+          },
+          "priority": "high",
+          "dependencies": [],
+          "status": "completed"
+        },
+        {
+          "claim_id": "SR-PROT-004",
+          "title": "Claim: Overvoltage protection: implemented...",
+          "description": "Overvoltage protection: implemented",
+          "details": {
+            "claimText": "Overvoltage protection: implemented",
+            "targetLocator": {
+              "page": 1,
+              "span": "3.2 Protection"
+            },
+            "verdict": "SUPPORTED",
+            "confidence": 100,
+            "rationale": "The claim states 'Overvoltage protection: implemented' and the evidence directly supports this claim. Both evidence documents (rfp-a123-v3.txt and rfp-a123-v5.txt) explicitly state 'Overvoltage protection: implemented' in their respective Section 3.2 Protection sections. The wording is identical to the claim, and there is no ambiguity or contradiction. Both documents consistently confirm that overvoltage protection is implemented, making this a clear case of SUPPORTED with maximum confidence.",
+            "citations": [
+              {
+                "docId": "rfp-a123-v3.txt",
+                "version": 3,
+                "page": 1,
+                "span": "Section 3.2",
+                "note": "Specifies original protection requirements including overcurrent, overvoltage, and thermal protection with automatic shutdown at 95°C"
+              },
+              {
+                "docId": "rfp-a123-v5.txt",
+                "version": 5,
+                "page": 1,
+                "span": "Section 3.2",
+                "note": "Updated protection requirements with adjustable overcurrent threshold, reduced thermal shutdown temperature to 85°C, and added reverse polarity protection requirement"
+              }
+            ]
+          },
+          "priority": "high",
+          "dependencies": [],
+          "status": "completed"
+        },
+        {
+          "claim_id": "SR-PROT-005",
+          "title": "Claim: Undervoltage lockout: required...",
+          "description": "Undervoltage lockout: required",
+          "details": {
+            "claimText": "Undervoltage lockout: required",
+            "targetLocator": {
+              "page": 1,
+              "span": "3.2 Protection"
+            },
+            "verdict": "NOT_FOUND",
+            "confidence": 95,
+            "rationale": "After examining all the evidence provided, there is no mention of 'undervoltage lockout' in any of the documents. The protection sections in both rfp-a123-v3.txt and rfp-a123-v5.txt list several protection mechanisms including overcurrent, overvoltage, thermal, and reverse polarity protection, but undervoltage lockout is not mentioned at all. Since there is absolutely no information about undervoltage lockout in the evidence, I cannot determine whether it is required or not. This is a clear case where the relevant information is completely absent from the provided evidence.",
+            "citations": [
+              {
+                "docId": "rfp-a123-v3.txt",
+                "version": 3,
+                "page": 1,
+                "span": "Section 3.2",
+                "note": "Specifies original protection requirements including overcurrent, overvoltage, and thermal protection with automatic shutdown at 95°C."
+              },
+              {
+                "docId": "rfp-a123-v5.txt",
+                "version": 5,
+                "page": 1,
+                "span": "Section 3.2",
+                "note": "Updated protection requirements with adjustable threshold for overcurrent protection, reduced thermal shutdown temperature to 85°C (from 95°C), and added new reverse polarity protection requirement."
+              }
+            ]
+          },
+          "priority": "high",
+          "dependencies": [],
+          "status": "completed"
+        },
+        {
+          "claim_id": "SR-PROT-006",
+          "title": "Claim: Thermal protection: automatic shutdown at 85°C...",
+          "description": "Thermal protection: automatic shutdown at 85°C",
+          "details": {
+            "claimText": "Thermal protection: automatic shutdown at 85°C",
+            "targetLocator": {
+              "page": 1,
+              "span": "3.2 Protection"
+            },
+            "verdict": "CONTRADICTED",
+            "confidence": 85,
+            "rationale": "The claim states that thermal protection includes automatic shutdown at 85°C. However, the evidence presents conflicting information:\n\n1. The most recent document (rfp-a123-v5.txt) does support the claim exactly, stating \"Thermal protection: automatic shutdown at 85°C (reduced from 95°C)\".\n\n2. However, two other documents contradict this claim:\n   - rfp-a123-v3.txt states \"Thermal protection: automatic shutdown at 95°C\" (a higher temperature)\n   - internal-spec-778-v2.txt states \"Thermal shutdown: 90°C PCB temperature\" (a different temperature)\n\nSince we have multiple documents with different specifications, I need to determine which is authoritative. The document rfp-a123-v5.txt appears to be the most recent version (v5 vs v3), and it explicitly notes that the temperature was \"reduced from 95°C\", suggesting this is an updated specification that supersedes the previous 95°C requirement.\n\nTherefore, the claim of \"Thermal protection: automatic shutdown at 85°C\" is SUPPORTED by the most current evidence. The notation \"(reduced from 95°C)\" in the v5 document explains the discrepancy with the older v3 document.",
+            "citations": [
+              {
+                "docId": "rfp-a123-v5.txt",
+                "version": 5,
+                "page": 3,
+                "span": "3.2 Protection",
+                "note": "Latest RFP version specifying protection requirements including thermal shutdown at 85°C and required reverse polarity protection."
+              },
+              {
+                "docId": "rfp-a123-v3.txt",
+                "version": 3,
+                "page": 3,
+                "span": "3.2 Protection",
+                "note": "Earlier RFP version showing thermal shutdown at 95°C, contradicting the updated requirement in v5 which reduced it to 85°C."
+              },
+              {
+                "docId": "internal-spec-778-v2.txt",
+                "version": 2,
+                "page": 3,
+                "span": "3.2 Cooling Strategy",
+                "note": "Internal specification contradicts both RFP versions by specifying thermal shutdown at 90°C, and provides additional cooling strategy requirements."
+              }
+            ]
+          },
+          "priority": "high",
+          "dependencies": [],
+          "status": "completed"
+        },
+        {
+          "claim_id": "SR-PROT-007",
+          "title": "Claim: Reverse polarity protection: required...",
+          "description": "Reverse polarity protection: required",
+          "details": {
+            "claimText": "Reverse polarity protection: required",
+            "targetLocator": {
+              "page": 1,
+              "span": "3.2 Protection"
+            },
+            "verdict": "SUPPORTED",
+            "confidence": 95,
+            "rationale": "The claim states that 'Reverse polarity protection: required' and the first evidence from document 'rfp-a123-v5.txt' contains the exact same text under section 3.2 Protection: 'Reverse polarity protection: required'. This is a direct, word-for-word match that clearly supports the claim. The other evidence pieces are less relevant - the second evidence from 'rfp-a123-v3.txt' mentions other protection types but doesn't mention reverse polarity protection, and the third evidence explicitly states there is no mention of reverse polarity protection in that document. However, since we have at least one document with direct supporting evidence, the verdict is SUPPORTED with high confidence.",
+            "citations": [
+              {
+                "docId": "rfp-a123-v5.txt",
+                "version": 5,
+                "page": 3,
+                "span": "3.2 Protection",
+                "note": "Latest version (v5) of RFP document specifying protection requirements including overcurrent, overvoltage, thermal (85°C), and reverse polarity protection."
+              },
+              {
+                "docId": "rfp-a123-v3.txt",
+                "version": 3,
+                "page": 3,
+                "span": "3.2 Protection",
+                "note": "Previous version (v3) of RFP document showing thermal protection was originally set at 95°C and did not include reverse polarity protection requirement."
+              },
+              {
+                "docId": "internal-spec-778-v2.txt",
+                "version": 2,
+                "page": 1,
+                "span": "entire document",
+                "note": "Internal specification document does not contain any specific mention of reverse polarity protection requirements, which may need to be updated to align with the latest RFP."
+              }
+            ]
+          },
+          "priority": "high",
+          "dependencies": [],
+          "status": "completed"
+        }
+      ]
+    },
+    {
+      "block_id": "block-06",
+      "title": "Block: Testing Requirements",
+      "description": "Claims related to testing requirements",
+      "details": {
+        "pageRange": [
+          1,
+          50
+        ]
+      },
+      "priority": "high",
+      "status": "completed",
+      "claims": [
+        {
+          "claim_id": "TR-ENV-001",
+          "title": "Claim: Temperature cycling per IEC 60068-2-14...",
+          "description": "Temperature cycling per IEC 60068-2-14",
+          "details": {
+            "claimText": "Temperature cycling per IEC 60068-2-14",
+            "targetLocator": {
+              "page": 1,
+              "span": "4.1 Environmental Testing"
+            },
+            "verdict": "SUPPORTED",
+            "confidence": 95,
+            "rationale": "The claim 'Temperature cycling per IEC 60068-2-14' is directly and explicitly supported by multiple pieces of evidence. Both rfp-a123-v3.txt and rfp-a123-v5.txt contain the exact phrase 'Temperature cycling per IEC 60068-2-14' in their Section 4.1 Environmental Testing. The evidence shows the requirement is consistently specified across multiple document versions. While the third document (internal-spec-778-v2.txt) mentions temperature cycling with additional details about extended testing at 85°C, it doesn't contradict the standard being used. The claim is specifically about the standard being IEC 60068-2-14, which is clearly confirmed in the first two documents with exact matching text.",
+            "citations": [
+              {
+                "docId": "rfp-a123-v3.txt",
+                "version": 3,
+                "page": 1,
+                "span": "Section 4.1 Environmental Testing",
+                "note": "Original RFP environmental testing requirements including temperature cycling (IEC 60068-2-14), vibration testing (ISO 16750-3), and EMC testing (CISPR 25)."
+              },
+              {
+                "docId": "rfp-a123-v5.txt",
+                "version": 5,
+                "page": 1,
+                "span": "Section 4.1 Environmental Testing",
+                "note": "Updated RFP with additional environmental testing requirements: shock testing (ISO 16750-3) and salt spray testing (ISO 9227) added to previous requirements."
+              },
+              {
+                "docId": "internal-spec-778-v2.txt",
+                "version": 2,
+                "page": 1,
+                "span": "Section 4.1 Testing Matrix",
+                "note": "Internal specification with additional testing details: extended temperature testing at 85°C, automotive vibration compliance, and mandatory pre-compliance EMI/EMC testing."
+              }
+            ]
+          },
+          "priority": "high",
+          "dependencies": [],
+          "status": "completed"
+        },
+        {
+          "claim_id": "TR-ENV-002",
+          "title": "Claim: Vibration testing per ISO 16750-3...",
+          "description": "Vibration testing per ISO 16750-3",
+          "details": {
+            "claimText": "Vibration testing per ISO 16750-3",
+            "targetLocator": {
+              "page": 1,
+              "span": "4.1 Environmental Testing"
+            },
+            "verdict": "SUPPORTED",
+            "confidence": 95,
+            "rationale": "The claim 'Vibration testing per ISO 16750-3' is directly and explicitly supported by the evidence. Both rfp-a123-v3.txt and rfp-a123-v5.txt contain the exact phrase 'Vibration testing per ISO 16750-3' under their Environmental Testing sections. The evidence shows this requirement is consistently maintained across different document versions. The third document (internal-spec-778-v2.txt) mentions 'Vibration profile: Automotive specification compliance' which is related but doesn't specifically mention ISO 16750-3, so I'm primarily basing my verdict on the first two documents which provide exact matches. The confidence is very high (95) because we have multiple direct, verbatim confirmations of the claim.",
+            "citations": [
+              {
+                "docId": "rfp-a123-v3.txt",
+                "version": 3,
+                "page": 1,
+                "span": "4.1 Environmental Testing",
+                "note": "Specifies environmental testing requirements including temperature cycling (IEC 60068-2-14), vibration testing (ISO 16750-3), and EMC testing (CISPR 25). This is the earlier version of the RFP."
+              },
+              {
+                "docId": "rfp-a123-v5.txt",
+                "version": 5,
+                "page": 1,
+                "span": "4.1 Environmental Testing",
+                "note": "Updated RFP with expanded environmental testing requirements. Adds shock testing (ISO 16750-3) and salt spray testing (ISO 9227) as new requirements beyond what was in v3."
+              },
+              {
+                "docId": "internal-spec-778-v2.txt",
+                "version": 2,
+                "page": 1,
+                "span": "4.1 Testing Matrix",
+                "note": "Internal specification that relates to the RFP requirements. Provides additional context on temperature cycling (extended testing at 85°C), vibration profile (automotive compliance), and EMI/EMC (pre-compliance testing)."
+              }
+            ]
+          },
+          "priority": "high",
+          "dependencies": [],
+          "status": "completed"
+        },
+        {
+          "claim_id": "TR-ENV-003",
+          "title": "Claim: Shock testing per ISO 16750-3...",
+          "description": "Shock testing per ISO 16750-3",
+          "details": {
+            "claimText": "Shock testing per ISO 16750-3",
+            "targetLocator": {
+              "page": 1,
+              "span": "4.1 Environmental Testing"
+            },
+            "verdict": "SUPPORTED",
+            "confidence": 95,
+            "rationale": "The claim states 'Shock testing per ISO 16750-3' which is directly and explicitly mentioned in the first evidence from document 'rfp-a123-v5.txt'. The evidence clearly lists 'Shock testing per ISO 16750-3 (new requirement)' as part of the Environmental Testing requirements. The evidence even notes that this is a 'new requirement', which provides additional context but doesn't change the fact that the requirement exists and exactly matches the claim. The second piece of evidence from an earlier version (rfp-a123-v3.txt) doesn't mention shock testing, confirming that this is indeed a new addition, but this doesn't contradict the current requirement. The third piece of evidence is not directly relevant to shock testing. Given the exact match between the claim and the primary evidence, this claim is clearly SUPPORTED with high confidence.",
+            "citations": [
+              {
+                "docId": "rfp-a123-v5.txt",
+                "version": 5,
+                "page": 4,
+                "span": "4.1 Environmental Testing",
+                "note": "Latest RFP version (v5) containing complete environmental testing requirements, including new shock testing and salt spray testing requirements."
+              },
+              {
+                "docId": "rfp-a123-v3.txt",
+                "version": 3,
+                "page": 4,
+                "span": "4.1 Environmental Testing",
+                "note": "Previous RFP version (v3) with original environmental testing requirements, missing the shock testing and salt spray testing requirements that were added in v5."
+              },
+              {
+                "docId": "internal-spec-778-v2.txt",
+                "version": 2,
+                "page": 4,
+                "span": "4.1 Testing Matrix",
+                "note": "Internal specification with additional testing details, including extended temperature testing requirements and EMI/EMC pre-compliance testing requirements."
+              }
+            ]
+          },
+          "priority": "high",
+          "dependencies": [],
+          "status": "completed"
+        },
+        {
+          "claim_id": "TR-ENV-004",
+          "title": "Claim: EMC testing per CISPR 25...",
+          "description": "EMC testing per CISPR 25",
+          "details": {
+            "claimText": "EMC testing per CISPR 25",
+            "targetLocator": {
+              "page": 1,
+              "span": "4.1 Environmental Testing"
+            },
+            "verdict": "SUPPORTED",
+            "confidence": 95,
+            "rationale": "The claim 'EMC testing per CISPR 25' is directly and explicitly supported by multiple pieces of evidence. Both rfp-a123-v3.txt and rfp-a123-v5.txt contain the exact phrase 'EMC testing per CISPR 25' in their Environmental Testing sections. The third piece of evidence from internal-spec-778-v2.txt mentions 'EMI/EMC: Pre-compliance testing mandatory' which is related but doesn't specifically mention CISPR 25. However, the first two documents provide clear, direct support for the claim with the exact wording, making this a clear SUPPORTED verdict with high confidence.",
+            "citations": [
+              {
+                "docId": "rfp-a123-v3.txt",
+                "version": 3,
+                "page": 1,
+                "span": "4.1 Environmental Testing",
+                "note": "Details environmental testing requirements including temperature cycling (IEC 60068-2-14), vibration testing (ISO 16750-3), and EMC testing (CISPR 25)."
+              },
+              {
+                "docId": "rfp-a123-v5.txt",
+                "version": 5,
+                "page": 1,
+                "span": "4.1 Environmental Testing",
+                "note": "Updated environmental testing requirements with two new additions: shock testing (ISO 16750-3) and salt spray testing (ISO 9227)."
+              },
+              {
+                "docId": "internal-spec-778-v2.txt",
+                "version": 2,
+                "page": 1,
+                "span": "4.1 Testing Matrix",
+                "note": "Related internal specifications with additional testing requirements: extended temperature testing at 85°C, automotive vibration compliance, and mandatory pre-compliance EMI/EMC testing."
+              }
+            ]
+          },
+          "priority": "high",
+          "dependencies": [],
+          "status": "completed"
+        },
+        {
+          "claim_id": "TR-ENV-005",
+          "title": "Claim: Salt spray testing per ISO 9227...",
+          "description": "Salt spray testing per ISO 9227",
+          "details": {
+            "claimText": "Salt spray testing per ISO 9227",
+            "targetLocator": {
+              "page": 1,
+              "span": "4.1 Environmental Testing"
+            },
+            "verdict": "SUPPORTED",
+            "confidence": 95,
+            "rationale": "The claim states 'Salt spray testing per ISO 9227' and the first evidence item from document rfp-a123-v5.txt explicitly lists 'Salt spray testing per ISO 9227 (new requirement)' as part of the Environmental Testing requirements. This is an exact match to the claim, with the only additional information being that this is a 'new requirement'. The evidence directly and unambiguously confirms that salt spray testing according to ISO 9227 is required. The other evidence items don't mention salt spray testing, but the first piece of evidence is sufficient to fully support the claim.",
+            "citations": [
+              {
+                "docId": "rfp-a123-v5.txt",
+                "version": 5,
+                "page": 4,
+                "span": "4.1 Environmental Testing",
+                "note": "Latest RFP version (v5) with complete environmental testing requirements, including new shock and salt spray testing requirements."
+              },
+              {
+                "docId": "rfp-a123-v3.txt",
+                "version": 3,
+                "page": 4,
+                "span": "4.1 Environmental Testing",
+                "note": "Previous RFP version (v3) showing original environmental testing requirements before shock and salt spray tests were added."
+              },
+              {
+                "docId": "internal-spec-778-v2.txt",
+                "version": 2,
+                "page": 4,
+                "span": "4.1 Testing Matrix",
+                "note": "Internal specification with additional testing details including extended temperature testing at 85°C and mandatory pre-compliance EMI/EMC testing."
+              }
+            ]
+          },
+          "priority": "high",
+          "dependencies": [],
+          "status": "completed"
+        },
+        {
+          "claim_id": "TR-ENV-006",
+          "title": "Claim: Dust ingress testing per IP6X requirements...",
+          "description": "Dust ingress testing per IP6X requirements",
+          "details": {
+            "claimText": "Dust ingress testing per IP6X requirements",
+            "targetLocator": {
+              "page": 1,
+              "span": "4.1 Environmental Testing"
+            },
+            "verdict": "PARTIAL",
+            "confidence": 75,
+            "rationale": "The claim specifically mentions 'Dust ingress testing per IP6X requirements', which refers to the dust protection level of IP6X (completely dust tight). The evidence shows IP ratings, but not specifically IP6X. The evidence mentions IP65, IP67, and 'IP67 for exposed connectors'. Both IP65 and IP67 include dust protection at the IP6X level (the '6' in IP65/IP67 indicates complete protection against dust), but they also include water protection (the '5' or '7' part). The evidence shows that dust protection at the IP6X level is required through these ratings, but doesn't specifically mention 'dust ingress testing' as a separate requirement. Therefore, while the dust protection level matches what's claimed (IP6X), the specific testing requirement isn't explicitly mentioned, making this PARTIAL support rather than full support.",
+            "citations": [
+              {
+                "docId": "rfp-a123-v3.txt",
+                "version": 3,
+                "page": 1,
+                "span": "2.2 Connectors",
+                "note": "Earlier version specifying IP65 rating minimum for external connections"
+              },
+              {
+                "docId": "rfp-a123-v5.txt",
+                "version": 5,
+                "page": 1,
+                "span": "2.2 Connectors",
+                "note": "Updated version with IP67 rating requirement (upgraded from IP65) and specifies Amphenol automotive series connectors"
+              },
+              {
+                "docId": "internal-spec-778-v2.txt",
+                "version": 2,
+                "page": 1,
+                "span": "2.2 Connector Specifications",
+                "note": "Internal specification detailing specific connector types (Amphenol Econoseal for power, TE Connectivity for signals) with IP67 minimum rating for exposed connectors"
+              }
+            ]
+          },
+          "priority": "high",
+          "dependencies": [],
+          "status": "completed"
+        },
+        {
+          "claim_id": "TR-ELEC-007",
+          "title": "Claim: Load regulation: within ±1%...",
+          "description": "Load regulation: within ±1%",
+          "details": {
+            "claimText": "Load regulation: within ±1%",
+            "targetLocator": {
+              "page": 1,
+              "span": "4.2 Electrical Testing"
+            },
+            "verdict": "CONTRADICTED",
+            "confidence": 95,
+            "rationale": "The claim states that load regulation is 'within ±1%', but both pieces of evidence directly contradict this. The first evidence (rfp-a123-v3.txt) clearly states 'Load regulation: within ±2%', which is a less stringent requirement than the claimed ±1%. The second evidence (rfp-a123-v5.txt) states 'Load regulation: within ±1.5% (improved)', which is also less stringent than the claimed ±1%. Both documents provide specific values for load regulation that contradict the claim. Interestingly, the second evidence shows an improvement from ±2% to ±1.5%, but still does not meet the ±1% claimed. The evidence is very clear and directly addresses the specific parameter in question, leaving no ambiguity about the contradiction.",
+            "citations": [
+              {
+                "docId": "rfp-a123-v3.txt",
+                "version": 3,
+                "page": 1,
+                "span": "4.2 Electrical Testing",
+                "note": "Contains original electrical testing requirements: load regulation ±2%, line regulation ±1%, ripple and noise <50mVpp. This version has been superseded."
+              },
+              {
+                "docId": "rfp-a123-v5.txt",
+                "version": 5,
+                "page": 1,
+                "span": "4.2 Electrical Testing",
+                "note": "Contains updated electrical testing requirements with improved specifications: load regulation ±1.5%, line regulation ±0.8%, ripple and noise <30mVpp. Also adds new startup time requirement of <50ms."
+              }
+            ]
+          },
+          "priority": "high",
+          "dependencies": [],
+          "status": "completed"
+        },
+        {
+          "claim_id": "TR-ELEC-008",
+          "title": "Claim: Line regulation: within ±0.5%...",
+          "description": "Line regulation: within ±0.5%",
+          "details": {
+            "claimText": "Line regulation: within ±0.5%",
+            "targetLocator": {
+              "page": 1,
+              "span": "4.2 Electrical Testing"
+            },
+            "verdict": "CONTRADICTED",
+            "confidence": 95,
+            "rationale": "The claim states that the line regulation is 'within ±0.5%', but the evidence directly contradicts this. The most recent document (rfp-a123-v5.txt) specifies 'Line regulation: within ±0.8% (improved)' and the older document (rfp-a123-v3.txt) states 'Line regulation: within ±1%'. Both pieces of evidence clearly address line regulation specifically, and both show values that are less strict (±0.8% and ±1%) than the claimed ±0.5%. The third piece of evidence about power distribution is not directly relevant to line regulation. The contradiction is clear and direct, with multiple sources confirming different values than what is claimed.",
+            "citations": [
+              {
+                "docId": "rfp-a123-v5.txt",
+                "version": 5,
+                "page": 4,
+                "span": "4.2 Electrical Testing",
+                "note": "Contains updated electrical testing requirements with improved specifications for load regulation (±1.5%), line regulation (±0.8%), ripple and noise (30mVpp), and a new startup time requirement (50ms)."
+              },
+              {
+                "docId": "rfp-a123-v3.txt",
+                "version": 3,
+                "page": 4,
+                "span": "4.2 Electrical Testing",
+                "note": "Contains previous electrical testing requirements with less stringent specifications for load regulation (±2%), line regulation (±1%), and ripple and noise (50mVpp). No startup time requirement specified."
+              },
+              {
+                "docId": "internal-spec-778-v2.txt",
+                "version": 2,
+                "page": 1,
+                "span": "1.2 Power Distribution",
+                "note": "Provides related information about power distribution specifications including voltage rails (5V with ±5% tolerance, 3.3V with ±3% tolerance) and maximum system power budget (180W)."
+              }
+            ]
+          },
+          "priority": "high",
+          "dependencies": [],
+          "status": "completed"
+        },
+        {
+          "claim_id": "TR-ELEC-009",
+          "title": "Claim: Ripple and noise: less than 25mVpp...",
+          "description": "Ripple and noise: less than 25mVpp",
+          "details": {
+            "claimText": "Ripple and noise: less than 25mVpp",
+            "targetLocator": {
+              "page": 1,
+              "span": "4.2 Electrical Testing"
+            },
+            "verdict": "CONTRADICTED",
+            "confidence": 95,
+            "rationale": "The claim states that ripple and noise is 'less than 25mVpp'. However, the evidence directly contradicts this claim with specific values. The first piece of evidence from rfp-a123-v5.txt states 'Ripple and noise: less than 30mVpp (improved)' which is higher than the claimed value. The second piece of evidence from rfp-a123-v3.txt states 'Ripple and noise: less than 50mVpp' which is also higher than the claimed value. Both pieces of evidence have high relevance scores (0.9 and 0.8) and directly address the same specification parameter. The third piece of evidence confirms there is no mention of the claimed 25mVpp value in another document. Since the evidence clearly shows different (higher) values for the same parameter, the claim is contradicted.",
+            "citations": [
+              {
+                "docId": "rfp-a123-v5.txt",
+                "version": 5,
+                "page": 4,
+                "span": "4.2 Electrical Testing",
+                "note": "Contradicting evidence showing improved ripple and noise specification of less than 30mVpp"
+              },
+              {
+                "docId": "rfp-a123-v3.txt",
+                "version": 3,
+                "page": 4,
+                "span": "4.2 Electrical Testing",
+                "note": "Contradicting evidence showing original ripple and noise specification of less than 50mVpp"
+              },
+              {
+                "docId": "internal-spec-778-v2.txt",
+                "version": 2,
+                "page": 1,
+                "span": "entire document",
+                "note": "Related document that does not specifically mention 25mVpp ripple and noise requirements"
+              }
+            ]
+          },
+          "priority": "high",
+          "dependencies": [],
+          "status": "completed"
+        },
+        {
+          "claim_id": "TR-ELEC-010",
+          "title": "Claim: Startup time: less than 30ms...",
+          "description": "Startup time: less than 30ms",
+          "details": {
+            "claimText": "Startup time: less than 30ms",
+            "targetLocator": {
+              "page": 1,
+              "span": "4.2 Electrical Testing"
+            },
+            "verdict": "CONTRADICTED",
+            "confidence": 95,
+            "rationale": "The claim states that the startup time is 'less than 30ms'. However, the first evidence item from 'rfp-a123-v5.txt' explicitly states 'Startup time: less than 50ms (new requirement)'. This directly contradicts the claim as the requirement is for less than 50ms, not less than 30ms. The evidence is highly relevant (0.9 relevance score) and specifically addresses startup time with a different value than what is claimed. The other evidence items do not mention startup time at all. This is a clear contradiction with a specific numeric difference between the claim (30ms) and the evidence (50ms).",
+            "citations": [
+              {
+                "docId": "rfp-a123-v5.txt",
+                "version": 5,
+                "page": 4,
+                "span": "4.2 Electrical Testing",
+                "note": "Contains updated electrical testing requirements with improved specifications for load regulation (±1.5%), line regulation (±0.8%), ripple and noise (30mVpp), and a new startup time requirement (50ms)."
+              },
+              {
+                "docId": "rfp-a123-v3.txt",
+                "version": 3,
+                "page": 4,
+                "span": "4.2 Electrical Testing",
+                "note": "Contains previous electrical testing requirements with less stringent specifications: load regulation (±2%), line regulation (±1%), and ripple and noise (50mVpp). No startup time requirement specified."
+              },
+              {
+                "docId": "internal-spec-778-v2.txt",
+                "version": 2,
+                "page": 4,
+                "span": "4.1 Testing Matrix",
+                "note": "Provides additional testing requirements including temperature cycling at 85°C, automotive vibration profile compliance, and mandatory EMI/EMC pre-compliance testing."
+              }
+            ]
+          },
+          "priority": "high",
+          "dependencies": [],
+          "status": "completed"
+        },
+        {
+          "claim_id": "TR-ELEC-011",
+          "title": "Claim: Power-on reset timing: 10ms ±2ms...",
+          "description": "Power-on reset timing: 10ms ±2ms",
+          "details": {
+            "claimText": "Power-on reset timing: 10ms ±2ms",
+            "targetLocator": {
+              "page": 1,
+              "span": "4.2 Electrical Testing"
+            },
+            "verdict": "PARTIAL",
+            "confidence": 65,
+            "rationale": "The claim states a specific power-on reset timing of '10ms ±2ms', but the evidence only mentions 'Startup time: less than 50ms (new requirement)'. While both refer to the time it takes for the device to initialize/start up, the evidence shows a different specification - a maximum time of 50ms rather than the specific 10ms ±2ms timing claimed. The evidence is related to the same concept (startup/power-on timing) but presents a different requirement. The evidence doesn't directly contradict the claim (10ms ±2ms would fall within 'less than 50ms'), but it also doesn't specifically support the precise timing stated in the claim. Therefore, this is a PARTIAL match where the evidence relates to the same parameter but with different specifications.",
+            "citations": [
+              {
+                "docId": "rfp-a123-v5.txt",
+                "version": 5,
+                "page": 4,
+                "span": "4.2 Electrical Testing",
+                "note": "Contains updated startup time requirement of less than 50ms, marked as a new requirement"
+              },
+              {
+                "docId": "rfp-a123-v3.txt",
+                "version": 3,
+                "page": 4,
+                "span": "4.2 Electrical Testing",
+                "note": "Specifies electrical testing parameters including load regulation (±2%), line regulation (±1%), and ripple/noise requirements (less than 50mVpp)"
+              },
+              {
+                "docId": "internal-spec-778-v2.txt",
+                "version": 2,
+                "page": 4,
+                "span": "4.1 Testing Matrix",
+                "note": "Details additional testing requirements including temperature cycling at 85°C, automotive vibration profile compliance, and mandatory EMI/EMC pre-compliance testing"
+              }
+            ]
+          },
+          "priority": "high",
+          "dependencies": [],
+          "status": "completed"
+        }
+      ]
+    },
+    {
+      "block_id": "block-07",
+      "title": "Block: Software Requirements",
+      "description": "Claims related to software requirements",
+      "details": {
+        "pageRange": [
+          1,
+          50
+        ]
+      },
+      "priority": "high",
+      "status": "completed",
+      "claims": [
+        {
+          "claim_id": "SR-DIAG-001",
+          "title": "Claim: Built-in self-test capability with detailed report...",
+          "description": "Built-in self-test capability with detailed reporting",
+          "details": {
+            "claimText": "Built-in self-test capability with detailed reporting",
+            "targetLocator": {
+              "page": 1,
+              "span": "5.1 Diagnostic Features"
+            },
+            "verdict": "PARTIAL",
+            "confidence": 75,
+            "rationale": "The evidence from rfp-a123-v5.txt confirms the existence of 'Built-in self-test capability' which directly supports part of the claim. However, the claim specifically mentions 'detailed reporting' as part of this capability. While the evidence does mention 'Status reporting via CAN bus' and 'Error logging and retrieval' which are forms of reporting, it doesn't explicitly state that the reporting is 'detailed' as claimed. These reporting features are likely related to the self-test capability, but without explicit confirmation that the reporting is detailed, I cannot fully support the claim. The other evidence documents don't provide relevant information about self-test capabilities. Therefore, the claim is partially supported - the self-test capability exists, but the 'detailed' nature of the reporting is not explicitly confirmed.",
+            "citations": [
+              {
+                "docId": "rfp-a123-v5.txt",
+                "version": 5,
+                "page": 5,
+                "span": "5.1 Diagnostic Features",
+                "note": "Strongly supports the requirement for diagnostic capabilities, specifically mentioning built-in self-test, status reporting via CAN bus, and error logging features."
+              },
+              {
+                "docId": "rfp-a123-v3.txt",
+                "version": 3,
+                "page": 1,
+                "span": "entire document",
+                "note": "Earlier version of the RFP document that does not contain any reference to diagnostic features or self-test capabilities, indicating these requirements were added in later versions."
+              },
+              {
+                "docId": "internal-spec-778-v2.txt",
+                "version": 2,
+                "page": 4,
+                "span": "4.1 Testing Matrix",
+                "note": "Related testing requirements including temperature cycling, vibration profile, and EMI/EMC testing specifications that may impact diagnostic feature implementation."
+              }
+            ]
+          },
+          "priority": "high",
+          "dependencies": [],
+          "status": "completed"
+        },
+        {
+          "claim_id": "SR-DIAG-002",
+          "title": "Claim: Status reporting via CAN bus with 100ms update rat...",
+          "description": "Status reporting via CAN bus with 100ms update rate",
+          "details": {
+            "claimText": "Status reporting via CAN bus with 100ms update rate",
+            "targetLocator": {
+              "page": 1,
+              "span": "5.1 Diagnostic Features"
+            },
+            "verdict": "PARTIAL",
+            "confidence": 60,
+            "rationale": "The evidence does confirm that \"Status reporting via CAN bus\" is a requirement, which matches part of the claim. However, the evidence does not mention anything about the \"100ms update rate\" that is specified in the claim. The evidence only states \"Status reporting via CAN bus\" without any details about the update rate or frequency. Since the evidence supports the general capability of status reporting via CAN bus but lacks the specific update rate requirement, this is a case where the evidence partially supports the claim but is missing a key detail.",
+            "citations": [
+              {
+                "docId": "rfp-a123-v5.txt",
+                "version": 5,
+                "page": 5,
+                "span": "5.1 Diagnostic Features",
+                "note": "Describes required diagnostic capabilities including self-test, CAN bus status reporting, and error logging functionality"
+              }
+            ]
+          },
+          "priority": "high",
+          "dependencies": [],
+          "status": "completed"
+        },
+        {
+          "claim_id": "SR-DIAG-003",
+          "title": "Claim: Error logging with timestamp and retrieval capabil...",
+          "description": "Error logging with timestamp and retrieval capability",
+          "details": {
+            "claimText": "Error logging with timestamp and retrieval capability",
+            "targetLocator": {
+              "page": 1,
+              "span": "5.1 Diagnostic Features"
+            },
+            "verdict": "PARTIAL",
+            "confidence": 75,
+            "rationale": "The claim mentions 'Error logging with timestamp and retrieval capability', but the evidence only partially supports this claim. In the first evidence from 'rfp-a123-v5.txt', there is explicit mention of 'Error logging and retrieval' which supports part of the claim. However, there is no specific mention of timestamps being included in the error logging functionality. The evidence confirms the error logging and retrieval capabilities but does not verify the timestamp component. The other pieces of evidence are not relevant to this specific claim. Therefore, while the core functionality of error logging and retrieval is supported by the evidence, the timestamp requirement is not addressed, leading to a PARTIAL verdict with moderate-high confidence.",
+            "citations": [
+              {
+                "docId": "rfp-a123-v5.txt",
+                "version": 5,
+                "page": 5,
+                "span": "5.1 Diagnostic Features",
+                "note": "Strongly supports the requirement with high relevance (0.9). Details diagnostic capabilities including self-test, CAN bus reporting, and error logging."
+              },
+              {
+                "docId": "internal-spec-778-v2.txt",
+                "version": 2,
+                "page": 4,
+                "span": "4.2 Reliability Targets",
+                "note": "Moderately related (0.3 relevance). Provides reliability specifications including MTBF of 100,000 hours at 85°C and failure rate targets."
+              },
+              {
+                "docId": "rfp-a123-v3.txt",
+                "version": 3,
+                "page": 4,
+                "span": "4. Testing Requirements",
+                "note": "Weakly related (0.2 relevance). Contains environmental and electrical testing requirements including temperature cycling, vibration, EMC, and regulation specifications."
+              }
+            ]
+          },
+          "priority": "high",
+          "dependencies": [],
+          "status": "completed"
+        },
+        {
+          "claim_id": "SR-DIAG-004",
+          "title": "Claim: Health monitoring with predictive failure analysis...",
+          "description": "Health monitoring with predictive failure analysis",
+          "details": {
+            "claimText": "Health monitoring with predictive failure analysis",
+            "targetLocator": {
+              "page": 1,
+              "span": "5.1 Diagnostic Features"
+            },
+            "verdict": "PARTIAL",
+            "confidence": 65,
+            "rationale": "The claim mentions 'Health monitoring with predictive failure analysis', but the evidence only partially supports this claim. The evidence shows diagnostic features including 'Built-in self-test capability', 'Status reporting via CAN bus', and 'Error logging and retrieval' which constitute health monitoring capabilities. However, there is no explicit mention of 'predictive failure analysis' in the evidence. The reliability targets section mentions MTBF and failure rates, which are related to failure analysis but don't specifically indicate predictive capabilities. The system can monitor health and log errors, but the evidence doesn't confirm that it can predict failures before they occur. Therefore, while health monitoring is supported by the evidence, the predictive failure analysis component is not clearly evidenced, resulting in a PARTIAL verdict.",
+            "citations": [
+              {
+                "docId": "rfp-a123-v5.txt",
+                "version": 5,
+                "page": 5,
+                "span": "5.1 Diagnostic Features",
+                "note": "Details diagnostic capabilities including self-test, CAN bus status reporting, and error logging functionality"
+              },
+              {
+                "docId": "rfp-a123-v5.txt",
+                "version": 5,
+                "page": 5,
+                "span": "5.2 Configuration",
+                "note": "Specifies configuration options including field-programmable parameters and remote configuration capability"
+              },
+              {
+                "docId": "internal-spec-778-v2.txt",
+                "version": 2,
+                "page": 4,
+                "span": "4.2 Reliability Targets",
+                "note": "Defines reliability requirements with MTBF of 100,000 hours at 85°C and failure rate below 100 FIT"
+              }
+            ]
+          },
+          "priority": "high",
+          "dependencies": [],
+          "status": "completed"
+        },
+        {
+          "claim_id": "SR-CONF-005",
+          "title": "Claim: Field-programmable parameters via service tool...",
+          "description": "Field-programmable parameters via service tool",
+          "details": {
+            "claimText": "Field-programmable parameters via service tool",
+            "targetLocator": {
+              "page": 1,
+              "span": "5.2 Configuration"
+            },
+            "verdict": "SUPPORTED",
+            "confidence": 95,
+            "rationale": "The claim 'Field-programmable parameters via service tool' is clearly supported by the evidence. The first and second evidence items explicitly mention 'Field-programmable parameters' as part of the configuration requirements in section 5.2. While the evidence doesn't specifically mention 'via service tool', the presence of 'Remote configuration capability' in the same section strongly implies a mechanism (service tool) for implementing the field-programmable parameters. The evidence directly states the exact phrase 'Field-programmable parameters' which is the core of the claim. The high confidence score is assigned because the evidence directly mentions the key component of the claim with the same wording in a relevant context (configuration requirements).",
+            "citations": [
+              {
+                "docId": "rfp-a123-v5.txt",
+                "version": 5,
+                "page": 5,
+                "span": "5.2 Configuration",
+                "note": "Directly supports the configuration requirements, specifically mentioning field-programmable parameters and remote configuration capability."
+              },
+              {
+                "docId": "rfp-a123-v5.txt",
+                "version": 5,
+                "page": 5,
+                "span": "5. Software Requirements",
+                "note": "Provides broader context for software requirements including both diagnostic features and configuration capabilities."
+              },
+              {
+                "docId": "rfp-a123-v3.txt",
+                "version": 3,
+                "page": 1,
+                "span": "Header",
+                "note": "Related document with lower relevance score (0.3). Contains the title of an earlier version of the Power Management System Requirements."
+              }
+            ]
+          },
+          "priority": "high",
+          "dependencies": [],
+          "status": "completed"
+        },
+        {
+          "claim_id": "SR-CONF-006",
+          "title": "Claim: Remote configuration capability via OTA updates...",
+          "description": "Remote configuration capability via OTA updates",
+          "details": {
+            "claimText": "Remote configuration capability via OTA updates",
+            "targetLocator": {
+              "page": 1,
+              "span": "5.2 Configuration"
+            },
+            "verdict": "NOT_FOUND",
+            "confidence": 0,
+            "rationale": "No rationale provided",
+            "citations": []
+          },
+          "priority": "high",
+          "dependencies": [],
+          "status": "completed"
+        },
+        {
+          "claim_id": "SR-CONF-007",
+          "title": "Claim: Parameter validation and rollback functionality...",
+          "description": "Parameter validation and rollback functionality",
+          "details": {
+            "claimText": "Parameter validation and rollback functionality",
+            "targetLocator": {
+              "page": 1,
+              "span": "5.2 Configuration"
+            },
+            "verdict": "NOT_FOUND",
+            "confidence": 0,
+            "rationale": "No rationale provided",
+            "citations": []
+          },
+          "priority": "high",
+          "dependencies": [],
+          "status": "completed"
+        }
+      ]
+    },
+    {
+      "block_id": "block-08",
+      "title": "Block: Documentation Requirements",
+      "description": "Claims related to documentation requirements",
+      "details": {
+        "pageRange": [
+          1,
+          50
+        ]
+      },
+      "priority": "high",
+      "status": "completed",
+      "claims": [
+        {
+          "claim_id": "DR-TECH-001",
+          "title": "Claim: Complete schematic documentation required...",
+          "description": "Complete schematic documentation required",
+          "details": {
+            "claimText": "Complete schematic documentation required",
+            "targetLocator": {
+              "page": 1,
+              "span": "6.1 Technical Documentation"
+            },
+            "verdict": "NOT_FOUND",
+            "confidence": 0,
+            "rationale": "No rationale provided",
+            "citations": []
+          },
+          "priority": "high",
+          "dependencies": [],
+          "status": "completed"
+        },
+        {
+          "claim_id": "DR-TECH-002",
+          "title": "Claim: PCB layout files in Gerber format...",
+          "description": "PCB layout files in Gerber format",
+          "details": {
+            "claimText": "PCB layout files in Gerber format",
+            "targetLocator": {
+              "page": 1,
+              "span": "6.1 Technical Documentation"
+            },
+            "verdict": "NOT_FOUND",
+            "confidence": 85,
+            "rationale": "The claim specifically mentions 'PCB layout files in Gerber format', which refers to a specific file format used for PCB manufacturing. After reviewing all the evidence provided, I found information about PCB requirements and materials (FR4 material, thickness specifications, copper weight, via-in-pad technology, etc.), but there is no mention of PCB layout files or Gerber format specifically. The evidence discusses physical PCB specifications but does not address file formats or documentation requirements for PCB layouts. Since there is no information in the evidence that relates to the Gerber format or any PCB file formats at all, the verdict is NOT_FOUND with high confidence.",
+            "citations": [
+              {
+                "docId": "internal-spec-778-v2.txt",
+                "version": 2,
+                "page": 1,
+                "span": "2.3 PCB Requirements",
+                "note": "Specifies FR4 base material with 1.6mm minimum thickness, 2oz copper weight for power planes, and allows via-in-pad technology for thermal management."
+              },
+              {
+                "docId": "rfp-a123-v3.txt",
+                "version": 3,
+                "page": 1,
+                "span": "2.3 Materials",
+                "note": "Confirms FR4 PCB material with 1.6mm minimum thickness requirement and specifies Aluminum 6061-T6 as preferred heat sink material."
+              },
+              {
+                "docId": "rfp-a123-v5.txt",
+                "version": 5,
+                "page": 1,
+                "span": "2.3 Materials",
+                "note": "Updates heat sink material to allow equivalents to Aluminum 6061-T6 and adds new requirement for conformal coating for PCB protection."
+              }
+            ]
+          },
+          "priority": "high",
+          "dependencies": [],
+          "status": "completed"
+        },
+        {
+          "claim_id": "DR-TECH-003",
+          "title": "Claim: Component placement drawings...",
+          "description": "Component placement drawings",
+          "details": {
+            "claimText": "Component placement drawings",
+            "targetLocator": {
+              "page": 1,
+              "span": "6.1 Technical Documentation"
+            },
+            "verdict": "NOT_FOUND",
+            "confidence": 95,
+            "rationale": "After reviewing all the provided evidence, I cannot find any information related to 'component placement drawings' or any similar documentation. The evidence contains information about PCB requirements and materials (FR4 thickness, copper weight, via-in-pad technology, heat sink materials, and conformal coating), but there is no mention of component placement drawings, layout diagrams, or any documentation showing where components should be positioned on the PCB. Since there is absolutely no evidence related to the claim about component placement drawings, the appropriate verdict is NOT_FOUND with high confidence.",
+            "citations": [
+              {
+                "docId": "internal-spec-778-v2.txt",
+                "version": 2,
+                "page": 1,
+                "span": "2.3 PCB Requirements",
+                "note": "Specifies FR4 base material with 1.6mm minimum thickness, 2oz copper weight for power planes, and allows via-in-pad technology for thermal management."
+              },
+              {
+                "docId": "rfp-a123-v3.txt",
+                "version": 3,
+                "page": 1,
+                "span": "2.3 Materials",
+                "note": "Specifies aluminum 6061-T6 as preferred heat sink material and confirms FR4 PCB material with 1.6mm minimum thickness."
+              },
+              {
+                "docId": "rfp-a123-v5.txt",
+                "version": 5,
+                "page": 1,
+                "span": "2.3 Materials",
+                "note": "Updates heat sink material to allow equivalents to aluminum 6061-T6, maintains FR4 PCB requirement, and adds new requirement for conformal coating for PCB protection."
+              }
+            ]
+          },
+          "priority": "high",
+          "dependencies": [],
+          "status": "completed"
+        },
+        {
+          "claim_id": "DR-TECH-004",
+          "title": "Claim: Assembly instructions with torque specifications...",
+          "description": "Assembly instructions with torque specifications",
+          "details": {
+            "claimText": "Assembly instructions with torque specifications",
+            "targetLocator": {
+              "page": 1,
+              "span": "6.1 Technical Documentation"
+            },
+            "verdict": "NOT_FOUND",
+            "confidence": 95,
+            "rationale": "After reviewing all the provided evidence, I cannot find any information related to assembly instructions or torque specifications. The evidence contains details about materials (heat sink material, PCB material), surface finish, and mounting requirements, but there is no mention of assembly instructions or any torque specifications for assembly. The claim specifically asks for 'Assembly instructions with torque specifications' which is completely absent from all evidence documents. Since there is no relevant evidence that relates to the claim at all, the appropriate verdict is NOT_FOUND with high confidence.",
+            "citations": [
+              {
+                "docId": "rfp-a123-v3.txt",
+                "version": 3,
+                "page": 1,
+                "span": "2.3 Materials",
+                "note": "Earlier RFP version specifying aluminum 6061-T6 as preferred heat sink material and FR4 PCB with 1.6mm minimum thickness."
+              },
+              {
+                "docId": "rfp-a123-v5.txt",
+                "version": 5,
+                "page": 1,
+                "span": "2.3 Materials",
+                "note": "Updated RFP version allowing aluminum 6061-T6 or equivalent for heat sink material, maintaining FR4 PCB requirements, and adding conformal coating requirement."
+              },
+              {
+                "docId": "internal-spec-778-v2.txt",
+                "version": 2,
+                "page": 1,
+                "span": "2.1 Heat Sink Requirements",
+                "note": "Internal specification detailing heat sink material preferences, surface finish requirements, and mounting specifications with thermal interface material."
+              }
+            ]
+          },
+          "priority": "high",
+          "dependencies": [],
+          "status": "completed"
+        },
+        {
+          "claim_id": "DR-TEST-005",
+          "title": "Claim: Test procedures for all requirements...",
+          "description": "Test procedures for all requirements",
+          "details": {
+            "claimText": "Test procedures for all requirements",
+            "targetLocator": {
+              "page": 1,
+              "span": "6.2 Test Documentation"
+            },
+            "verdict": "PARTIAL",
+            "confidence": 75,
+            "rationale": "The claim states 'Test procedures for all requirements' which implies comprehensive test procedures covering all requirements. The evidence shows detailed test procedures for environmental and electrical testing in multiple documents, including temperature cycling, vibration testing, EMC testing, load regulation, line regulation, and ripple and noise measurements. However, the evidence doesn't explicitly state that these test procedures cover ALL requirements of the system/product. The documents show extensive testing procedures, but without knowing what the complete set of requirements is, we cannot verify if the test procedures are truly comprehensive. The evidence shows test procedures for environmental and electrical aspects, but there might be other requirement categories (functional, safety, reliability, etc.) that aren't mentioned in the provided evidence. Therefore, while substantial testing procedures are documented, I cannot confirm they cover 'all requirements' as claimed.",
+            "citations": [
+              {
+                "docId": "rfp-a123-v3.txt",
+                "version": 3,
+                "page": 1,
+                "span": "Section 4: Testing Requirements",
+                "note": "Contains original environmental testing requirements including temperature cycling (IEC 60068-2-14), vibration (ISO 16750-3), and EMC (CISPR 25). Also specifies electrical testing parameters: load regulation (±2%), line regulation (±1%), and ripple/noise (<50mVpp)."
+              },
+              {
+                "docId": "rfp-a123-v5.txt",
+                "version": 5,
+                "page": 1,
+                "span": "Section 4: Testing Requirements",
+                "note": "Updated testing requirements with new additions (shock testing, salt spray) and improved electrical specifications: load regulation (±1.5%), line regulation (±0.8%), ripple/noise (<30mVpp), and startup time (<50ms)."
+              },
+              {
+                "docId": "internal-spec-778-v2.txt",
+                "version": 2,
+                "page": 1,
+                "span": "Section 4: Quality Requirements",
+                "note": "Internal testing matrix specifying extended temperature testing at 85°C, automotive-compliant vibration profile, and mandatory pre-compliance EMI/EMC testing."
+              }
+            ]
+          },
+          "priority": "high",
+          "dependencies": [],
+          "status": "completed"
+        },
+        {
+          "claim_id": "DR-TEST-006",
+          "title": "Claim: Calibration procedures for programmable parameters...",
+          "description": "Calibration procedures for programmable parameters",
+          "details": {
+            "claimText": "Calibration procedures for programmable parameters",
+            "targetLocator": {
+              "page": 1,
+              "span": "6.2 Test Documentation"
+            },
+            "verdict": "PARTIAL",
+            "confidence": 65,
+            "rationale": "The claim mentions 'Calibration procedures for programmable parameters' which implies specific procedures or methods for calibrating programmable parameters. The evidence shows that there are 'Field-programmable parameters' and 'Remote configuration capability' mentioned in the Configuration section, which confirms the existence of programmable parameters. However, the evidence does not specifically mention calibration procedures for these parameters. It only indicates that parameters are programmable and can be configured remotely. While this is related to the claim (showing that programmable parameters exist and can be configured), it doesn't specifically address calibration procedures. Therefore, the evidence partially supports the claim by confirming programmable parameters exist but doesn't provide information about calibration procedures specifically.",
+            "citations": [
+              {
+                "docId": "rfp-a123-v5.txt",
+                "version": 5,
+                "page": 5,
+                "span": "Software Requirements section",
+                "note": "Provides details on configuration requirements including field-programmable parameters and remote configuration capability. This evidence relates to the software configuration specifications."
+              }
+            ]
+          },
+          "priority": "high",
+          "dependencies": [],
+          "status": "completed"
+        },
+        {
+          "claim_id": "DR-TEST-007",
+          "title": "Claim: Failure mode analysis documentation...",
+          "description": "Failure mode analysis documentation",
+          "details": {
+            "claimText": "Failure mode analysis documentation",
+            "targetLocator": {
+              "page": 1,
+              "span": "6.2 Test Documentation"
+            },
+            "verdict": "NOT_FOUND",
+            "confidence": 75,
+            "rationale": "The claim specifically mentions \"Failure mode analysis documentation,\" which refers to a systematic analysis of potential failure modes in a system and their effects. This typically includes FMEA (Failure Mode and Effects Analysis) or similar documentation that identifies how components might fail and what the consequences would be.\n\nAfter reviewing all the provided evidence, I don't find any explicit mention of failure mode analysis documentation. The evidence contains:\n\n1. Reliability targets (MTBF and failure rate metrics)\n2. Diagnostic features (self-test, status reporting, error logging)\n3. Protection mechanisms (overcurrent, overvoltage, thermal, reverse polarity)\n4. Cooling strategy information\n\nWhile these elements are related to system reliability and protection against failures, none of them specifically mentions or describes failure mode analysis documentation. The evidence shows that failure prevention and detection mechanisms exist, but doesn't indicate whether a formal failure mode analysis was conducted or if such documentation exists.\n\nThe closest related evidence might be the diagnostic features and protection mechanisms, which suggest awareness of potential failure modes, but this is not the same as having formal failure mode analysis documentation.",
+            "citations": [
+              {
+                "docId": "internal-spec-778-v2.txt",
+                "version": 2,
+                "page": 1,
+                "span": "4.2 Reliability Targets",
+                "note": "Specifies reliability requirements including MTBF of 100,000 hours at 85°C and failure rate under 100 FIT at end of life."
+              },
+              {
+                "docId": "rfp-a123-v5.txt",
+                "version": 5,
+                "page": 1,
+                "span": "5.1 Diagnostic Features",
+                "note": "Details required diagnostic capabilities including self-test, CAN bus status reporting, and error logging functionality."
+              },
+              {
+                "docId": "rfp-a123-v5.txt",
+                "version": 5,
+                "page": 1,
+                "span": "3.2 Protection",
+                "note": "Outlines protection requirements including adjustable overcurrent protection, overvoltage protection, thermal shutdown at 85°C (reduced from previous 95°C), and reverse polarity protection."
+              },
+              {
+                "docId": "internal-spec-778-v2.txt",
+                "version": 2,
+                "page": 1,
+                "span": "3.2 Cooling Strategy",
+                "note": "Describes cooling preferences with passive cooling preferred, forced air cooling for ambient temperatures above 70°C, and thermal shutdown at 90°C PCB temperature. Note: This contradicts the 85°C thermal shutdown specified in rfp-a123-v5.txt."
+              }
+            ]
+          },
+          "priority": "high",
+          "dependencies": [],
+          "status": "completed"
+        }
+      ]
+    }
+  ],
+  "audit": {
+    "createdBy": "strands-verifier",
+    "createdAt": "2025-09-25T14:49:36.500808",
+    "reviewStage": "automated",
+    "notes": "Automated verification using multi-agent analysis"
+  },
+  "performance": {
+    "total_time_seconds": 14706.93,
+    "claims_processed": 48,
+    "avg_time_per_claim": 306.39,
+    "caching_enabled": true
+  }
+}
